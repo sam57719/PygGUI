@@ -13,15 +13,15 @@ class Widget:
         self.active = True
         self.greyscale_surface = self.surface.copy()
 
-        self.widget_name = self.__class__.__name__
+        self._widget_name = self.__class__.__name__
 
-        widget_count[self.widget_name] = widget_count.get(self.widget_name, 0) + 1
+        widget_count[self._widget_name] = widget_count.get(self._widget_name, 0) + 1
 
         if self.widget_id is None:
             self.widget_id = self._generate_widget_id()
 
     def _generate_widget_id(self) -> str:
-        return f'{self.widget_name}_{widget_count.get(self.widget_name):02}'
+        return f'{self._widget_name}_{widget_count.get(self._widget_name):02}'
 
     def draw(self, win) -> None:
         if not self.hidden:
