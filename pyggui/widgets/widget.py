@@ -1,17 +1,21 @@
 import pygame
+from pygame.math import Vector2 as Vector
 from pyggui.core import widget_count
 from pyggui.core.functions import convert_to_greyscale
 
 
 class Widget:
-    def __init__(self, widget_id: str = None):
+    def __init__(self, widget_id: str = None, padding: tuple = (0, 0)):
         self.widget_id = widget_id
+        self.padding = Vector(padding)
 
         self.surface = pygame.Surface((0, 0))
         self.rect = self.surface.get_rect()
         self.hidden = False
         self.active = True
         self.greyscale_surface = self.surface.copy()
+        self.ui_container = None
+        self.position = Vector(0, 0)
 
         self._widget_name = self.__class__.__name__
         self._unique_widget_name = self._generate_widget_id()
@@ -50,3 +54,7 @@ class Widget:
         self.active = not self.active
         if not self.active:
             self.greyscale_surface = convert_to_greyscale(self.surface)
+
+    @property
+    def bottom_of_padding(self):
+        return self.rect.bottom + self.padding.y

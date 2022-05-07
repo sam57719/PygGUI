@@ -9,13 +9,12 @@ class Label(Widget):
     def __init__(self, widget_id: str = None, text: str = '', font: pygame.font.Font = None,
                  text_col=core.WHITE, background_col=None, padding=core.default_label_padding,
                  i_padding=core.default_label_i_padding):
-        super().__init__(widget_id)
+        super().__init__(widget_id, padding)
 
         self.text = text
         self.font = font
         self.text_col = text_col
         self.background_col = background_col
-        self.padding = Vector(padding)
         self.i_padding = Vector(i_padding)
 
         if self.font is None:
