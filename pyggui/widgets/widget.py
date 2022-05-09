@@ -5,17 +5,22 @@ from pyggui.core.functions import convert_to_greyscale
 
 
 class Widget:
-    def __init__(self, widget_id: str = None, padding: tuple = (0, 0)):
+    def __init__(self, widget_id: str = None, theme=None):
         self.widget_id = widget_id
-        self.padding = Vector(padding)
+        self.theme = theme
+        self.padding = Vector(0, 0)
 
         self.surface = pygame.Surface((0, 0))
         self.rect = self.surface.get_rect()
+
         self.hidden = False
         self.active = True
+
         self.greyscale_surface = self.surface.copy()
-        self.ui_container = None
         self.position = Vector(0, 0)
+
+        self.ui_container = None
+        self.theme = None
 
         self._widget_name = self.__class__.__name__
         self._unique_widget_name = self._generate_widget_id()
@@ -54,6 +59,9 @@ class Widget:
         self.active = not self.active
         if not self.active:
             self.greyscale_surface = convert_to_greyscale(self.surface)
+
+    def render(self):
+        pass
 
     @property
     def bottom_of_padding(self):
