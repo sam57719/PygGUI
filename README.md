@@ -2,7 +2,8 @@
 PygGUI is a simple Pygame GUI module.
 
 ## Current Features
-- UI Manager - Can be used with an existing pygame gameloop or can itself be the main gameloop.
+- UI Manager - Can be used with an existing pygame gameloop or can itself be the main gameloop
+- Theming - Basic CSS Style Themeing with Hirearchy
 - Label - Simple text label
 
 ## Example code
