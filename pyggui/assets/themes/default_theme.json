@@ -1,0 +1,27 @@
+{
+  "*": {
+    "bg-col": "gray10",
+    "text-col": "white",
+    "i-padding": [10, 5],
+    "e-padding": [5, 5],
+    "border-width": 0,
+    "border-col": null,
+    "font": {
+      "name": "fixedsys",
+      "size": 32
+    }
+  },
+  "label": {
+    "bg-col": "#608BD5"
+  },
+  "button": {
+    "bg-col": "#608BD5",
+    "border-radius": 10,
+
+    "states": {
+      "hover": {
+        "bg-col": "red"
+      }
+    }
+  }
+}

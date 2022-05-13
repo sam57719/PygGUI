@@ -11,9 +11,9 @@ font = pygame.font.SysFont('couriernew', 13)
 
 theme = Theme()
 
-print(theme.colours.get("main_bg"))
+#print(theme.colours.get("main_bg"))
 
-print(theme.font)
+#print(theme.font)
 
 pygame.init()
 

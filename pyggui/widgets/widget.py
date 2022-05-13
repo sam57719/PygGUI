@@ -5,9 +5,10 @@ from pyggui.core.functions import convert_to_greyscale
 
 
 class Widget:
-    def __init__(self, widget_id: str = None, theme=None):
+    def __init__(self, widget_id: str = None):
         self.widget_id = widget_id
-        self.theme = theme
+
+        self.theme = None
         self.padding = Vector(0, 0)
 
         self.surface = pygame.Surface((0, 0))
@@ -33,6 +34,9 @@ class Widget:
         return f'{self._widget_name}_{widget_count.get(self._widget_name):02}'
 
     def draw(self, win) -> None:
+        if self.theme.changed:
+            self.render()
+
         if not self.hidden:
             if self.active:
                 win.blit(self.surface, self.rect)
@@ -63,6 +67,15 @@ class Widget:
     def render(self):
         pass
 
+    def update(self):
+        pass
+
+    def handle_event(self):
+        pass
+
     @property
     def bottom_of_padding(self):
         return self.rect.bottom + self.padding.y
+
+    def __repr__(self):
+        return f'{self.__class__.__name__}: {self.widget_id}'
