@@ -15,7 +15,6 @@ label = Label(text='Test Label')
 ui.add_widget(label)
 
 label2 = Label(text='Test 2nd Label')
-# label2.theme = ui.theme.copy()
 ui.add_widget(label2)
 
 ui.mainloop()
